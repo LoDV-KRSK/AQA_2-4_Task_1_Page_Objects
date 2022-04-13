@@ -14,10 +14,14 @@ public class TransferPage {
     private SelenideElement fromCard = $("[data-test-id='from'] .input__control");
     private SelenideElement topUpButton = $("[data-test-id='action-transfer']");
     private SelenideElement transferHead = $(byText("Пополнение карты"));
-    private SelenideElement errorMessage = $(byText("Недостаточно средств"));
+    private SelenideElement errorMessage = $(byText("На ваше счете недостаточно средств"));
 
     public TransferPage() {
         transferHead.shouldBe(visible);
+    }
+
+    public void shouldShowErrorTransfer() {
+        errorMessage.shouldBe(visible);
     }
 
     public DashboardPage makeTransfer(String amountToTransfer, DataHelper.CardInfo cardInfo) {
@@ -34,9 +38,5 @@ public class TransferPage {
         fromCard.setValue(cardInfo.getCardNumber());
         topUpButton.click();
         return new DashboardPage();
-    }
-
-    public void shouldShowErrorTransfer() {
-        errorMessage.shouldBe(visible);
     }
 }
