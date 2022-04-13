@@ -14,7 +14,7 @@ public class TransferPage {
     private SelenideElement fromCard = $("[data-test-id='from'] .input__control");
     private SelenideElement topUpButton = $("[data-test-id='action-transfer']");
     private SelenideElement transferHead = $(byText("Пополнение карты"));
-    private SelenideElement errorMessage = $(byText("На ваше счете недостаточно средств"));
+    private SelenideElement errorMessage = $(byText("На вашем счете недостаточно средств"));
 
     public TransferPage() {
         transferHead.shouldBe(visible);
